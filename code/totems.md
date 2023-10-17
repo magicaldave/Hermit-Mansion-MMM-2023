@@ -46,7 +46,7 @@ return {
 }
 ```
 
-## second pushing or pulling the player
+## second pushing or pulling the player (button)
 
 ```lua
     local ce = world.cells
@@ -74,4 +74,41 @@ return {
         end
       end
     end
+```
+## making the push on onupdate in only global
+- this has drawback that player can't move while being pushed so maybe with delay
+```lua
+local world = require('openmw.world')
+local types = require('openmw.types')
+local core = require('openmw.core')
+local util = require('openmw.util')
+
+local function onUpdate(dt)
+    local ce = world.cells
+    for i, _ in pairs(ce) do
+      local sta = ce[i]:getAll(types.Creature)
+      for a, _ in pairs(sta) do
+        if sta[a].recordId == "scrib" then
+         local pla = world.players
+          local dist = (sta[a].position - pla[1].position):length()
+            --print(tostring(dist))
+            if dist < 1000 then
+            
+              local direction = util.vector3(
+                  ( pla[1].position.x - sta[a].position.x),
+                  ( pla[1].position.y - sta[a].position.y),
+                  ( pla[1].position.z - sta[a].position.z)
+                  ):normalize()*1  -- push outward
+             
+              pla[1]:teleport( pla[1].cell, util.transform.move(pla[1].position)*direction )
+            end
+        end
+      end
+    end
+
+end
+
+return {
+    engineHandlers = { onUpdate = onUpdate }
+}
 ```
