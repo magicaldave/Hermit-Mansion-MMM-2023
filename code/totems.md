@@ -112,3 +112,29 @@ return {
     engineHandlers = { onUpdate = onUpdate }
 }
 ```
+## spell totem
+- this one works curently n the first found "totem" 
+```lua
+local core = require('openmw.core')
+local self = require('openmw.self')
+local nearby = require('openmw.nearby')
+local types = require('openmw.types')
+
+local function onUpdate(dt)
+  if self.cell.name == "The Arcane Academy of Venarius, Training Room" then  -- cell
+    local near = nearby.activators
+     for i, _ in pairs(near) do
+        if near[i].recordId == string.lower("Act_Crystal_01_Pulse") then -- the "totem"
+          if ( self.position - near[i].position ):length() < 600 then  -- trigger distance
+            print(tostring(( self.position - near[i].position ):length())) -- length to console
+            types.Actor.spells(self):add("mmm_mmm_invisibilty")    
+          else
+            types.Actor.spells(self):remove("mmm_mmm_invisibilty")
+          end
+        end
+     end
+  end 
+end
+
+return { engineHandlers = { onUpdate = onUpdate } } 
+```
