@@ -93,7 +93,7 @@ local function onActive()
 end
 
 local function onInactive()
-  timer()   -- stop the tiemr when cell is left
+  timer()   -- stop the timer when cell is left
   print("stop")
 end
 
