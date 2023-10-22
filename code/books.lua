@@ -22,7 +22,7 @@ local function onObjectActive(object)
           if types.Player.quests(lp[i])["MS_FargothRing"].stage ~= 10 then -- the quest stage
             
             if ( lp[i].position - object.position ):length() < 300 then
-              if core.sound.isSoundPlaying("Ambient Factory Ruins", object) == false then
+              if core.sound.isSoundPlaying("Daedric Chant", object) == false then
                 core.sound.playSound3d("Daedric Chant",object, {
                 volume = ( 300 / ( lp[i].position - object.position ):length() ) }  
                 )         -- fades to distance of 300
