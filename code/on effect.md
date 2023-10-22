@@ -67,3 +67,21 @@ end
 return { engineHandlers = { onUpdate = onUpdate } }
 
 ```
+- code from apparatuses
+```lua
+local function func2(var2)
+    local cel = world.cells --[var2.appaself2.cell.name]
+    for a, _ in pairs(cel) do
+     if cel[a].name == var2.pself2.cell.name then 
+      local bubble = cel[a]:getAll(types.Activator)
+       for i, _ in pairs(bubble) do
+         if bubble[i].recordId == "active_bubbles00" then
+            bubble[i]:remove()
+            print("remove")
+         end
+       end
+     end
+    end
+end
+```
+
