@@ -104,5 +104,5 @@ local function onInactive()
   print("stop")
 end
 
-return { engineHandlers = { onActive = onActive } }
+return { engineHandlers = { onActive = onActive, , onInactive = onInactive } }
 ```
