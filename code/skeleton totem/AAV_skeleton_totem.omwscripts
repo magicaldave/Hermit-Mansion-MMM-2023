@@ -1,0 +1,3 @@
+CUSTOM:     skeleton totem/skeletons_totem.lua
+GLOBAL:     skeleton totem/skeletons/skeletons_global.lua
+CUSTOM:     skeleton totem/skeletons/skeletons_skeletons.lua
