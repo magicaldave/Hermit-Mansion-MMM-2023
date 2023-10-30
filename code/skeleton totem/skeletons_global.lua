@@ -17,7 +17,7 @@ local function funcname1(var1)
        skels = 0
    end
 
-   if skels <= 5 then -- if fewer than 5       
+   if skels <= 5 then -- if fewer or 5, summons six skeletons       
      local skeleton = world.createObject ("AAV_skeleton_warrior", 1) -- the summoned skeleton
       
      skeleton:teleport("The Arcane Academy of Venarius, Training Room", var1.creatureself.position ) -- the cell and enemy
