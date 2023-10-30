@@ -6,8 +6,8 @@ local skels
 
 local function onObjectActive(object)
   if object.recordId == string.lower("AAV_T_Imp_Set_Shrine_Shor") then 
-    if object:hasScript("skeletons/skeletons_totem.lua") == false then -- not sure if needed
-      object:addScript("skeletons/skeletons_totem.lua") -- add the totem script
+    if object:hasScript("skeleton totem/skeletons_totem.lua") == false then -- not sure if needed
+      object:addScript("skeleton totem/skeletons_totem.lua") -- add the totem script
     end
   end
 end
@@ -20,8 +20,8 @@ local function funcname1(var1)
    if skels <= 5 then -- if fewer than 5       
      local skeleton = world.createObject ("AAV_skeleton_warrior", 1) -- the summoned skeleton
       
-     skeleton:teleport("The Arcane Academy of Venarius, Training Room", var1.creatureself.position )
-     skeleton:addScript("skeletons/skeletons_skeletons.lua")
+     skeleton:teleport("The Arcane Academy of Venarius, Training Room", var1.creatureself.position ) -- the cell and enemy
+     skeleton:addScript("skeleton totem/skeletons_skeletons.lua")
      
      --skeleton:sendEvent('StartAIPackage', {type='Follow', target=player, sideWithTarget = true } )
                 -- another way to do the AI set     
